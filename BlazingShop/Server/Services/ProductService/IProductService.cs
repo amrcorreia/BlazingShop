@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BlazingShop.Client.Services.ProductService
+namespace BlazingShop.Server.Services.ProductService
 {
     public interface IProductService
     {
-        event Action OnChange;
+        Task<List<Product>> GetAllProducts();
 
-        List<Product> Products { get; set; }
-
-        Task LoadProducts(string categoryUrl = null);
+        Task<List<Product>> GetProductByCategory(string categoryUrl);
 
         Task<Product> GetProduct(int id);
     }
